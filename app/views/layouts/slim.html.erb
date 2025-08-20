@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tarmamun mu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= render 'application/favicon' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body class="account-body" data-turbo="false">
+    <div class="account-card">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <%= link_to root_path, class: "navbar-item" do %>
+              <%= image_tag 'logo.png', alt: 'Logo TARMAMUN MU 2021' %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+
+      <div class="card auth-card mt-4">
+        <%= yield %>
+      </div>
+      <div></div>
+    </div>
+    <%= render "shared/notification" %>
+  </body>
+</html>

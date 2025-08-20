@@ -1,0 +1,15 @@
+.accordion-content {
+  height: 0;
+  display: none;
+  transition: all 0.4s ease;
+
+  &.is-active {
+    display: block;
+    transition: all 0.4s ease;
+
+    &.filter-accordion {
+      height: auto;
+      padding-top: 0.5rem;
+    }
+  }
+}

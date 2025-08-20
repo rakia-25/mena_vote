@@ -1,0 +1,13 @@
+<div class="modal" data-modal-target="content">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <section class="modal-card-body" data-turbo="false">
+      <div class="is-flex is-align-items-center is-justify-content-space-between mb-3">
+        <p class="is-size-5">Voter <strong class="candidate-name title is-4"></strong></p>
+        <button class="delete close-button" aria-label="close" data-action="click->modal#close"></button>
+      </div>
+      <p class="mb-2"><span class="candidate-category has-text-primary"></span></p>
+      <%= render partial: 'voters/voter_request_form', locals: { payment: @payment } %>
+    </section>
+  </div>
+</div>

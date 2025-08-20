@@ -1,0 +1,30 @@
+.clipboard-container {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 0.5rem;
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .hidden-clip-board-input {
+    border: none;
+    padding-left: 0.5rem;
+  }
+}
+
+.clipboard-button {
+  display: none;
+}
+
+.clipboard--supported .clipboard-button {
+  display: initial;
+}
+
+// .hidden-clip-board-input {
+//   position: absolute;
+//   top: 0;
+//   z-index: -1;
+//   height: 0;
+//   opacity: 0;
+// }

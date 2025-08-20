@@ -1,0 +1,5 @@
+<% flash.each do |key, value| %>
+<div data-close="self" class="notification app-notification has-text-weight-bold <%= alert_style(key) %>">
+  <%= value %>
+</div>
+<% end %>

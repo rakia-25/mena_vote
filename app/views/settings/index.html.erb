@@ -1,0 +1,28 @@
+<div class="card no-shadow">
+  <div class="card-content">
+    <div class="columns is-multiline">
+      <%= form_for @setting, url: setting_path(@setting), method: 'put', html: { class: 'column is-11 is-offset-1 candidate-form', multipart: true } do |f| %>
+        <div class="columns is-multiline">
+          <div class="column is-4 p-5">
+            <h6 class= "w-600 mb-1 is-block">Activé les votes</h6>
+          </div>
+          <div class="column is-8 p-5">
+            <div class="control">
+              <%= f.label :vote, class: 'radio' do %>
+                <%= f.radio_button :vote, true, class: "radio" %>
+                Oui
+              <% end %>
+              <%= f.label :vote,class: 'radio' do %>
+                <%= f.radio_button :vote, false, class: "radio" %>
+                Non
+              <% end %>
+            </div>
+          </div>
+          <div class="my-3 clearfix">
+            <%= f.submit "Enregistrer configuration", class: "button is-rounded is-primary mt-4 is-pulled-right" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>  
+</div> 

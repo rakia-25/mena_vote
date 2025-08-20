@@ -1,0 +1,3 @@
+<div class="select select-parent">
+  <%= f.collection_select name, send("#{value[:model_name]}_filtarable"), :id, :title, {include_blank: "Non définit"}, placeholder: "Non définit", class: "select js-choice" %>
+</div>

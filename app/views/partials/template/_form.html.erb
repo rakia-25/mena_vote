@@ -1,0 +1,20 @@
+<%= form_for resource do |f| %>
+  <% send("#{resource_name}_forms").each do |column, value| %>
+    <div class="field">
+      <div class="control columns">
+        <div class="column is-3">
+          <%= f.label value[:title], class: '' %>
+        </div>
+        <div class="column is-9">
+          <%= render "partials/template/fields/#{value[:field]}", value: value, name: column, f: f, resource: resource %>
+          <%= form_field_error_helper(resource, value[:field] == 'model' ? value[:model_name] : column) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="field is-pulled-right">
+    <div class="control">
+      <%= f.submit "Enrégistrer", class: "button is-primary mt-4" %>
+    </div>
+  </div>
+<% end %>

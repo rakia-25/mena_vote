@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/meta' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= render 'application/favicon' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body data-turbo="false">
+    <section class="header header-img" data-controller="navbar">  
+      <%= render 'shared/navbar' %>
+      <%= yield :banner %>
+    </section>
+
+    <%= yield %>
+    <%= render 'shared/footer' %>
+  </body>
+</html>

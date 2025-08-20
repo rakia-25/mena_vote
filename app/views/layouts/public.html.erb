@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <%= render 'shared/meta' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= render 'application/favicon' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body data-turbo="false">
+    <% setting = Setting.first %>
+    <% if setting.show_candidate_section? == false %>
+      <div class="coming-soon-page">
+        <div class="coming-soon-content">
+          <h1 class="coming-soon-title">Bientôt disponible</h1>
+        </div>
+      </div>
+    <% else %>
+      <div data-controller="tabs navbar">
+        <% if setting.show_countdown? == true %>
+          <%= render 'shared/countdown' %>
+        <% end %>
+
+        <% if setting.show_candidate_section? == true %>
+          <header class="header">
+            <%= render 'shared/navbar' %>
+          </header>
+
+          <%= render 'shared/vote_section', setting: setting %>
+
+          <header class="header">
+            <%= render 'shared/header' %>
+          </header>
+        <% else %>
+          <header class="header">
+            <%= render 'shared/navbar' %>
+            <%= render 'shared/header' %>
+          </header>
+        <% end %>
+
+        <%= yield %>
+        <%= render 'shared/footer' %>
+      </div>
+    <% end %>
+
+    <script src="https://i-pay.money/checkout.js"></script>
+  </body>
+
+</html>

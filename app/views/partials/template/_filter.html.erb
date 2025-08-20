@@ -1,0 +1,17 @@
+<%= form_with url: send("#{resource_name.pluralize}_path"), scope: "filter", method: 'get', id: "search-filters", class: 'columns is-desktop is-multiline', local: true do |f| %>
+  <% send("#{resource_name}_filters").each do |filter, value| %>
+    <div class="column  is-2">
+      <div class="field">
+        <div class="control">
+          <small><%= value[:title] %></small>
+          <%= render "partials/template/fields/#{value[:field]}", name: filter, value: value, f: f %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="field column is-2">
+    <div class="control">
+      <button type="submit" name="button" class="button is-primary mt-5">Filter</button>
+    </div>
+  </div>
+<% end %>

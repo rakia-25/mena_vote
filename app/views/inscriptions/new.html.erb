@@ -1,0 +1,272 @@
+<% content_for :meta_title, "TARMAMUN MU | Devenir la TARMAMUN MU" %>
+
+<% content_for :banner do %>
+  <div class="banner banner-sm is-justify-content-center">
+    <div class="banner-content banner-content-center">
+      <div class="section-title mb-0">
+        <h2 class="title has-text-centered lh-1-6">
+          Comment être candidate à
+          <span class="is-relative mt-3">
+            <%= render 'shared_svg/bg_highlight' %>
+            TARMAMUN MU
+          </span> ?
+        </h2>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div data-controller="inscription reveal" class="section-spacing pt-2">
+  <div class="container">
+    <div class="column is-12-mobile is-8-desktop mx-auto" data-target="inscription.step inscription.approvalStep">
+      <div class="mb-6">
+        <h3 class="mb-4">1- RESPECTER LE CRITERE DE CANDIDATURE</h3>
+        <li class="ml-4">Etre de nationalité Nigérienne</li>
+        <li class="ml-4">Avoir entre 18 ans révolue et 27 ans</li>
+        <li class="ml-4">Avoir au minimum le BAC </li>
+        <li class="ml-4">Mesurer 1m70 pied nu</li>
+        <li class="ml-4">Etre célibataire sans enfants</li>
+        <li class="ml-4">Avoir toute les facultés et être de bonne moralité</li>
+      </div>
+      <div class="mb-6">
+        <h3 class="mb-4">2- AVOIR LES PIECES ADMINISTRATIVES REQUISES</h3>
+        <li class="ml-4">Certificat de nationalité ou carte d'identité </li>
+      </div>
+      <div class="mb-6">
+        <h3 class="mb-4">3- AVOIR SON ATTESTATION  DE CANDIDATURE ET SES FORMULAIRES IMPRIMES ET RESNSEIGNES</h3>
+        <li class="ml-4">La fiche de candidature et les formulaires d'information sont disponibles au COMINI.</li>
+      </div>
+      <div class="mb-6">
+        <h3 class="mb-4">4- POUR LES MOINS DE 20 ANS</h3>
+        <li class="ml-4">Avoir son attestation de candidature signée dument par le père ou la mère.</li>
+      </div>
+      <div class="mb-6">
+        <h3 class="mb-4">5- PAYER LES FRAIS D'INSCRIPTION DE 20 000 FCFA SUR LE SITE OFFICIEL <a href="https://www.missniger.show/">MissNiger</a> </h3>
+        <li class="ml-4">Les frais d'inscription sont fixés à 20 000 FCFA et payable au COMINI, à travers iPayMoney via Airtel Money, Moov Money ou Al-IZZA</li>
+      </div>
+
+      <div class="mt-6">
+        <p class=""><span class="has-text-weight-bold">N.B :</span> Frais d'inscription non remboursables</p>
+      </div>
+
+      <div class="approved-action mt-6">
+        <button data-action="click->inscription#approveTerms" class="button is-arrow is-default">
+          Lu et approuvé
+          <%= render 'shared_svg/arrow_right' %>
+        </button>
+      </div>
+    </div>          
+    <%= form_for @inscription, url: inscriptions_path, method: :post, remote: true, html: { multipart: true, data: {target: 'inscription.step inscription.formStep', action: "ajax:error->inscription#onPostError ajax:success->inscription#onPostSuccess"}, class:"is-hidden" } do |f| %>
+      <input  type="hidden" value=<%= @inscription.payment_uid %> name="inscription[payment_uid]" data-target="inscription.currentPayment" class="current_payment">  
+      <input  type="hidden" value="" name="inscription[approved]" data-target="inscription.approved" class="">  
+      <div class="columns is-multiline is-justify-content-center">
+        <div class="column is-12-mobile is-5-widescreen">
+          <div class="p-4 has-border-gray is-radius-10 mb-4">
+            <h4 class="is-size-5 mt-0 mb-4">Informations Personnelles</h4>
+            <div class="field">
+              <div class="control">
+                <div class="form-img-preview form-img-preview-candidate" data-controller="fileUpload">
+                  <% photo_url = @inscription.photo.attached? ? rails_representation_url(@inscription.photo.variant(resize_to_limit: [200, 100]), only_path: true) : asset_pack_path('media/images/default-image.png') %>
+                  <% image_name = @inscription.photo.attached? ? @inscription.photo.filename : 'Aucune Image' %>
+                  <%= image_tag( photo_url, data: {'target': "fileUpload.preview"} ) %>
+                  <%= f.file_field :photo, direct_upload: true, name: "inscription[photo]", class: 'is-hidden', accept: 'image/jpeg, image/png', data: {'target': 'fileUpload.fileInput', action: 'change->fileUpload#fileChange'} %>
+                  <div class="is-flex action-line">
+                    <%= f.label :photo, class: 'button is-default is-light' %>
+                    <span class="has-text-small pl-1" data-placeholder="<%= image_name %>" data-target="fileUpload.fileName"><%= image_name %></span>
+                  </div>
+                </div>
+                <p class="has-text-centered help is-danger photo_error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :first_name, class: '' %>
+                <%= f.text_field :first_name, class: "input " %>
+                <p class="help is-danger first_name_error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :last_name, class: '' %>
+                <%= f.text_field :last_name, class: "input " %>
+                <p class="help is-danger last_name_error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :phone_whatsapps, class: '' %>
+                <%= f.text_field :phone_whatsapps, class: "input " %>
+                <p class="help is-danger phone_whatsapps_error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :payment_phone, class: '' %>
+                <%= f.text_field :payment_phone, class: "input " %>
+                <p class="help is-danger payment_phone_error"></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-4 has-border-gray is-radius-10 mb-4">
+            <h4 class="is-size-5 mt-0 mb-4">Informations Physiques</h4>
+            <div class="field">
+              <div class="control">
+                <%= f.label :weigth, class: '' %>
+                <%= f.text_field :weigth, class: "input " %>
+                <p class="help is-danger weigth_error"></p>
+              </div>
+            </div>
+            <div class="field phone-input ">
+              <div class="control">
+                <%= f.label :height, class: '' %>
+                <div class="control has-icons-left has-icons-right">
+                  <%= f.number_field :height, class: "input " %>
+                  <span class="icon is-small is-left">
+                    <strong>1 m</strong>
+                  </span>
+                </div>
+                <p class="help is-danger height_error"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 has-border-gray is-radius-10">
+            <h4 class="is-size-5 mt-0 mb-4">Informations Professionnelles et Académiques</h4>
+            <div class="field">
+              <div class="control">
+                <%= f.label :profession, class: '' %>
+                <%= f.text_field :profession, class: "input " %>
+                <p class="help is-danger profession_error"></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <%= f.label :studying_level, class: '' %>
+                <div class="select ">
+                  <%= f.select :studying_level, options_for_select(Inscription.studying_levels.map{ |s| [t("enum.studying_level.#{s[0]}"), s[0]] }, @inscription.studying_level), class: 'select' %>
+                </div>
+                <p class="help is-danger studying_level_error"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-12-mobile is-5-widescreen">
+          <div class="p-4 has-border-gray is-radius-10 mb-4">
+            <h4 class="is-size-5 mt-0 mb-4">Informations Démographiques</h4>
+            <div class="field">
+              <div class="control">
+                <%= f.label :age, class: '' %>
+                <div class="select ">
+                  <%= f.select :age, options_for_select(Inscription.ages.map{ |s| [t("enum.age.#{s[0]}"), s[0]] }, @inscription.age), {prompt: true}, class: 'js-choice' %>
+                </div>
+                <p class="help is-danger age_error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :region_id, class: '' %>
+                <div class="select ">
+                  <%= f.collection_select(:region_id, Region.order("LOWER(name) asc"), :id, :name, {prompt: true}, {class: 'js-choice'} ) %>
+                </div>
+                <p class="help is-danger region_id_error"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 has-border-gray is-radius-10 mb-4">
+            <h4 class="is-size-5 mt-0 mb-4">Coordonnées</h4>
+            <div class="field">
+              <div class="control">
+                <%= f.label :email, class: '' %>
+                <%= f.text_field :email, class: "input " %>
+                <p class="help is-danger email_error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :address, class: '' %>
+                <%= f.text_area :address, class: "textarea" %>
+                <p class="help is-danger address_error"></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-4 has-border-gray is-radius-10 mb-4">
+            <h4 class="is-size-5 mt-0 mb-4">Réseaux Sociaux</h4>
+            <div class="field">
+              <div class="control">
+                <%= f.label :facebook_url, class: '' %>
+                <%= f.text_field :facebook_url, type: 'url', class: "input " %>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :linkedin_url, class: '' %>
+                <%= f.text_field :linkedin_url, type: 'url', class: "input " %>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :instagram_url, class: '' %>
+                <%= f.text_field :instagram_url, type: 'url', class: "input " %>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= f.label :tiktok_url, class: '' %>
+                <%= f.text_field :tiktok_url, type: 'url', class: "input " %>
+              </div>
+            </div>
+          </div>
+
+          <div class="field" data-target="inscription.submit">
+            <div class="control has-text-right-desktop">
+              <h4 class="checkbox is-block mb-3 mt-0">
+                <%= f.check_box :inscription_fee, type: 'checkbox', class: ""%>
+                J'accepte payer les frais d'inscription<br> qui sont à 20 000 FCFA.
+              </h4>
+              <%= f.text_field :status, class: "is-hidden", value: 'init' %>
+
+              <%= f.submit "Valider", class: "button is-default mt-4" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--<div>
+        <p><strong>NB:</strong> Les frais d'inscription sont à 20 000 FCFA, à envoyer par Al izza ou Airtel Money  au  88800001 au comité d'Organisation.</p>
+      </div>-->
+      <div>
+        <p class="mt-4 is-hidden" data-target="inscription.loadingMobile"><strong>Vous avez reçu un push sur votre téléphone, veuillez confirmer pour continuer.</strong> <span class="throbber-loader">Traitement en cours&#8230;</span></p>
+        <p class="mb-5 is-hidden" data-target="inscription.loadingAlizza">Veuillez vous rendre dans un centre <strong>AL IZZA</strong> et fournir ce code: <strong class="is-9 title reference-alizza"></strong></p>
+        <p class="mb-5 is-hidden" data-target="inscription.anyPaymentLoading">Votre inscription a été pris en compte avec succès. Vous devez payer vos frais de canddature plutard. Veuillez contactacter <a href="https://www.missniger.show/#contacts"><strong>MissNiger</strong></a> pour plus d'information sur le paiement. Merci!!!</p>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="payment-response">
+      <div class="is-hidden" data-target="inscription.step inscription.currentResponse">
+        <div class="columns  is-multiline">
+          <div class="column is-12-mobile is-8-desktop mx-auto">
+            <div class="card shadow-none">
+              <div class="card-content">
+                <div id="payment_success" data-target="inscription.successStep">
+                  <article class="message is-primary">
+                    <div class="message-body">
+                      Merci! Votre dossier de candidature a été soumis avec succèss.
+                      <p class="mt-4">Veuillez cliquer sur ce lien: <strong><u><a href="<%= root_path %>">Accueil</a></u></strong> pour fermer et aller sur la page d'accueil.</p>
+                    </div>
+                  </article>
+
+                </div>
+                <div id="payment_failed" data-target="inscription.failureStep">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

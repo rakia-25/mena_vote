@@ -1,0 +1,79 @@
+<div class="columns">
+  <div class="column">
+    <div class="card">
+      <div>
+        <div data-controller="accordion" class="table-options">
+          <div class="is-flex is-justified-between is-aligned-center">
+            <a class="" data-action="click->accordion#toggle">
+              <i class="uil uil-filter"></i> Filtre
+            </a>
+            <div class="">
+              <% if policy(resource_name.to_sym).create? %>
+                <%= link_to send("new_#{resource_name}_path"), class: "" do %>
+                  <i class="uil uil-plus"></i>
+                  Créer un nouveau
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="accordion-content filter-accordion <%= resource_name %>" data-target="accordion.content">
+            <%= render 'partials/template/filter', resource_name: resource_name %>
+          </div>
+        </div>
+        <div id="table-container">
+          <table id="<%= resource_name %>_table" class="table is-narrow is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <% send("#{resource_name}_columns").each do |column, title| %>
+                  <th><%= title %></th>
+                <% end %>
+                <th style="width: 50px;">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% resources.each do |resource| %>
+                <tr>
+                  <% send("#{resource_name}_columns").each do |column, title| %>
+                    <td class="is-vcentered"><%= resource.send(column) %></td>
+                  <% end %>
+                  <td>
+                    <div class="dropdown is-hoverable is-right">
+                      <div class="dropdown-trigger">
+                        <button class="button is-secondary" aria-haspopup="true" aria-controls="dropdown-menu">
+                          <i class="uil uil-ellipsis-v"></i>
+                        </button>
+                      </div>
+                      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                          <% send("#{resource_name}_actions").each do |action, title| %>
+                            <% if policy(resource).send("#{action}?") %>
+                              <% if action.to_s == 'show' %>
+                                <%= link_to title, resource, class: "dropdown-item" %>
+                              <% elsif action.to_s == 'print' %>
+                                <%= link_to title, send("#{action}_#{resource_name}_path", resource, format: :pdf), class: "dropdown-item" %>
+                              <% elsif action.to_s == 'delete' %>
+                                <%= link_to title, send("#{resource_name}_path", resource), method: :delete, data: { confirm: 'Etes-vous sure?' }, class: "dropdown-item" %>
+                              <% else %>
+                                <%= link_to title, send("#{action}_#{resource_name}_path", resource), class: "dropdown-item" %>
+                              <% end %>
+                            <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div class="columns is-centered my-4">
+            <div class="column is-6">
+              <%== pagy_bulma_nav(@pagy) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

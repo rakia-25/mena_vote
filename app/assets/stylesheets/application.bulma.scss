@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&family=Nunito:wght@400&display=swap');
+
+// Set your brand colors
+$tarmamun-primary:        #f78755 !default;
+$tarmamun-blue:           #176ac7 !default;
+$tarmamun-red:            #ff160a !default;
+$tarmamun-orange:         #fd7e14 !default;
+$tarmamun-yellow:         #ffc80a !default;
+$tarmamun-green:          #00ad49 !default;
+$tarmamun-cyan:           #08bebe !default;
+$tarmamun-light-green:    #49c773 !default;
+
+$body-background: #ffffff;
+$purple: #8A4D76;
+$pink: #FA7C91;
+$brown: #757763;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$grey-dark: $brown;
+$grey-light: $beige-light;
+$primary: $tarmamun-primary;
+$link: $tarmamun-primary;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+$info: $tarmamun-cyan;
+$success: $tarmamun-green;
+$warning: $tarmamun-yellow;
+$danger: $tarmamun-red;
+
+
+// Update some of Bulma's component variables
+$body-background-color: $body-background;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Import only what you need from Bulma
+// @import "bulma/sass/utilities/_all.sass";
+// @import "bulma/sass/base/_all.sass";
+// @import "bulma/sass/elements/button.sass";
+// @import "bulma/sass/elements/container.sass";
+// @import "bulma/sass/elements/title.sass";
+// @import "bulma/sass/form/_all.sass";
+// @import "bulma/sass/components/navbar.sass";
+// @import "bulma/sass/layout/hero.sass";
+// @import "bulma/sass/layout/section.sass";
+
+@import 'bulma/bulma';
+
+@import 'simple-notifications-solution/dist/Notifications';
+// @import 'flatpickr';
+// @import 'choices.js/public/assets/styles/choices.min';
+// @import 'swiper/swiper-bundle.css';
+@import './style';

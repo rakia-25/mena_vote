@@ -1,0 +1,13 @@
+.gallery-row {
+  column-count: 3; /* Number of columns you want */
+  column-gap: 20px; /* Gap between columns */
+  
+  @media screen and (max-width: 768px) {
+    column-count: 2; /* Number of columns you want */
+  }
+}
+
+.gallery-column {
+  break-inside: avoid; /* Prevent item from breaking across columns */
+  margin-bottom: 20px; /* Space between items */
+}

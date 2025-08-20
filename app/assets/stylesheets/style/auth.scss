@@ -1,0 +1,34 @@
+.account-body {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  nav.navbar {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .account-card {
+    position: relative;
+    background-color: #fff;
+    height: 100vh;
+    padding: 0 1rem 1rem;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
+    .auth-card {
+      position: relative;
+      max-width: 460px;
+      width: 100%;
+      margin: 0 auto;
+
+      h2 {
+        margin: 0 0 1rem;
+      }
+    }
+  }
+}

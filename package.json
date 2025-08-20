@@ -1,0 +1,28 @@
+{
+  "name": "app",
+  "private": true,
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.30",
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.4",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "bulma": "^0.9.0",
+    "choices.js": "^9.0.1",
+    "clipboard-polyfill": "^3.0.3",
+    "esbuild": "^0.20.2",
+    "flatpickr": "^4.6.3",
+    "sass": "^1.74.1",
+    "simple-notifications-solution": "^1.2.2",
+    "stimulus": "^3.0.1",
+    "stimulus-reveal-controller": "^4.0.0",
+    "stimulus_reflex": "^3.3.0",
+    "swiper": "^11.0.5",
+    "turbolinks": "^5.2.0"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build:css": "sass ./app/assets/stylesheets/application.bulma.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  }
+}

@@ -1,0 +1,43 @@
+fr:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "est déjà inscrite, cliquez sur le Button *<b>Se connecter</b>*"
+            phone:
+              taken: "est déjà inscrit, cliquez sur le Button *<b>Se connecter</b>*"
+    models:
+      user: "utilisateur"
+    attributes:
+      user:
+        first_name: "Prénom(s)"
+        last_name: "Nom"
+        password: "Mot de passe"
+        phone: "Téléphone"
+        password_confirmation: "Confirmation de mot de passe"
+      region:
+        name: 'Nom région'
+      inscription:
+        first_name: 'Nom'
+        last_name: 'Prénom'
+        phone_whatsapps: 'Téléphone whatsapp'
+        weigth: 'Poids'
+        height: 'Taille'
+        profession: 'Profession'
+        studying_level: "Niveau d'étude"
+        age: 'Age'
+        email: 'Addresse mail'
+        address: 'Addresse physique'
+        status: 'Statut'
+        region_id: 'Région'
+        payment_provider: Saisir votre Numéro Airtel Money pour payer les 1000 FCFA de frais de dépôt
+        payment_phone: Téléphone de paiement
+        photo: 'Choisir une photo'
+        facebook_url: 'Lien Facebook (Optionel)'
+        linkedin_url: 'Lien LinkedIn (Optionel)'
+        instagram_url: 'Lien Instagram (Optionel)'
+        tiktok_url: 'Lien TikTok (Optionel)'
+
+

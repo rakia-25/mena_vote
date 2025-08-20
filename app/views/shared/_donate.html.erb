@@ -1,0 +1,36 @@
+<div data-controller="donate">
+  <div id="donation-modal" class="modal" data-donate-target="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <section class="modal-card-body has-text-left">
+        <div class="is-flex is-align-items-center is-justify-content-space-between mb-4">
+          <h4 class="modal-card-title my-0">Faire un Don</h4>
+          <button class="delete" aria-label="close" data-action="click->donate#close"></button>
+        </div>
+        <div class="field">
+          <label class="label">Quel est le montant que vous voulez donné</label>
+          <div class="control">
+            <input class="input" type="number" id="donation-amount" data-donate-target="amountInput" data-action="input->donate#updateAmount">
+            <span id="donation-amount-error-message" data-donate-target="amountInputErrorMessage" class="has-text-danger is-hidden">Le montant doit être rempli.</span>
+          </div>
+        </div>
+        <button class="button is-default w-100 animated headShake infinite" data-action="click->donate#submitForm">Valider</button>
+      </section>
+    </div>
+  </div>
+  
+  <button class="button is-default" data-action="click->donate#open">Faire un don</button>
+  
+  <button
+    id="donation-ipaymoney-button"
+    type="button"
+    class="button ipaymoney-button is-hidden"
+    data-donate-target="ipayButton"
+    data-amount=""
+    data-environement="live"
+    data-key="pk_2c2ee44ffc334c98a811e8f08851462b"
+    data-auto-open="false"
+    data-transaction-id=""
+    data-redirect-url="https://www.tarmamun.com/"
+  >Payer</button>
+</div>

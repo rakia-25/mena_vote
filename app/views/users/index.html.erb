@@ -1,0 +1,9 @@
+<% content_for :page_title do %>
+  Utilisateurs
+<% end %>
+
+<% content_for :page_title_action do %>
+<% end %>
+
+<%= render 'partials/template/index', resource_name: 'user', resources: @users do %>
+<% end %>

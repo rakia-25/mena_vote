@@ -1,0 +1,56 @@
+<% content_for :meta_title, "Voter #{@candidate.name} | TARMAMUN MU" %>
+<% content_for :meta_description, @candidate.categories.first.name %>
+<% content_for :meta_image, "https://www.tarmamun.com/candidates/#{@candidate.categories.first.name} - #{@candidate.name}.png" %>
+
+<div class="section-spacing has-background-gray">
+  <div class="column is-12-mobile is-8-widescreen mx-auto">
+    <div class="candidate-wrapper">
+      <div class="has-text-centered mb-4">
+        <%= image_tag "candidates/#{@candidate.categories.first.name} - #{@candidate.name}.png", alt: "#{@current_year.id} #{@candidate.name}", class: "is-rounded mb-3", style: "max-width: 200px;" %>
+        <h2 class="title is-4 mb-1">Voter <strong><%= @candidate.name == 'SEYNO 50' ? 'SEYNO 50%' : @candidate.name %></strong></h2>
+        <ul class="is-size-6 card-category">
+          <li class="has-text-primary">
+            <%= @candidate.categories.map(&:name).join(", ") %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vote-form" data-controller="payment">
+        <div class="notification is-warning is-light has-text-centered notification-payment-info">
+          <p class="is-size-6 mb-2">💸 Total à payer : <strong><span data-payment-target="total">100F cfa</span></strong></p>
+          <p>Exprimez autant de voix que vous voulez : <strong>5, 10, 50, 100, 10.000 ...</strong> Remplissez le nombre de fois et autant de fois que vous souhaitez voter</p>
+        </div>
+
+        <div class="field">
+          <label class="label">Combien de fois voulez-vous voter ?</label>
+          <div class="control">
+            <input type="number" class="input is-medium" id="vote_number" data-payment-target="voteNumber" data-action="input->payment#cost" value="1" min="1" required>
+          </div>
+          <p class="help is-danger is-hidden" data-payment-target="amountError">Veuillez indiquer le nombre de votes</p>
+        </div>
+
+        <p class="has-text-danger has-text-weight-semibold mt-4">
+          ⚠️ Veuillez attendre la fin du processus de paiement et le retour sur le site pour que la comptabilisation soit effective.
+        </p>
+
+        <div class="box has-background-white-ter mt-5 mb-0">
+          <h4 class="title is-5 mt-0 mb-2">🔗 Lien de vote</h4>
+          <p>Cliquer sur le bouton ci-dessous pour copier le lien de vote de <span class="candidate-name"><%= @candidate.name == 'SEYNO 50' ? 'SEYNO 50%' : @candidate.name %></span> afin de le partager</p>
+          <div data-controller="clipboard" class="clipboard-container">
+            <input class="hidden-clip-board-input clip-board-input input" data-clipboard-target="source" type="text"
+              value="<%= request.base_url %>/candidates/<%= @candidate.vote_code %>" class="input" readonly>
+            <button type="button" data-action="click->clipboard#copy" class="button is-warning clipboard-button" data-tooltip="Clique pour copier">
+              Copier
+            </button>
+          </div>
+        </div>
+  
+        <input type="hidden" class="input input-current-candidate-code" value="<%= @candidate.vote_code %>" data-payment-target="voteCode" required>
+        <div class="has-text-right mt-5">
+          <button class="button is-default w-100 animated headShake infinite" data-action="click->payment#resquestPayment" data-payment-target="button">Je vote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

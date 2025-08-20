@@ -1,0 +1,67 @@
+<% content_for :page_title do %>
+  Inscriptions
+<% end %>
+
+<div class="card">
+  <div data-controller="accordion" class="table-options">
+    <div class="is-flex is-justified-between is-aligned-center">
+      <a class="" data-action="click->accordion#toggle">
+        <i class="uil uil-filter"></i> Filtre
+      </a>
+      <div class="">
+      </div>
+    </div>
+    <div class="accordion-content filter-accordion inscription" data-target="accordion.content">
+      <%= render 'partials/template/filter', resource_name: 'inscription' %>
+    </div>
+  </div>
+  <div class="table-container">
+    <table id="inscription_table" class="table is-narrow is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <% send("inscription_columns").each do |column, title| %>
+            <th><%= title %></th>
+          <% end %>
+          <th style="width: 50px;">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @inscriptions.each do |inscription| %>
+          <tr>
+            <% send("inscription_columns").each do |column, title| %>
+              <td class="is-vcentered"><%= inscription.send(column) %></td>
+            <% end %>
+            <td>
+              <div class="dropdown is-hoverable is-right">
+                <div class="dropdown-trigger">
+                  <button class="button is-secondary" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <i class="uil uil-ellipsis-v"></i>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div class="dropdown-content">
+                    <% send("inscription_actions").each do |action, title| %>
+                      <% if action.to_s == 'show' %>
+                        <%= link_to title, inscription, class: "dropdown-item" %>
+                      <% elsif action.to_s == 'delete' %>
+                        <%= link_to title, inscription_path(inscription), method: :delete, data: { confirm: 'Etes-vous sure?' }, class: "dropdown-item" %>
+                      <% else %>
+                        <%= link_to title, edit_inscription_path(inscription), class: "dropdown-item" %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="columns is-centered my-4">
+      <div class="column is-6">
+        <%== pagy_bulma_nav(@pagy) %>
+      </div>
+    </div>
+  </div>
+</div>

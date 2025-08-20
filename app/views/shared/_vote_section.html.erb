@@ -1,0 +1,76 @@
+<section class="pb-8" data-controller="vote modal" data-action="new:candidate:vote@window->vote#newVote">
+  <div class="has-background-gray py-6">
+    <div class="container">
+      <div class="section-title mb-5">
+        <h2>Nominés TARMAMUN MU <br>4eme Edition
+        </h2>
+        <p>Chaque vote compte, participez à l'évolution en soutenant les lauréats qui représentent la culture nigérienne!</p>
+        <div class="partners-container mb-4">
+          <ul class="partners-list payment-method-list">
+            <li>
+              <p>Votez avec </p>
+            </li>
+            <li class="mr-0">
+              <%= image_tag 'amanata.png', alt: 'Al-izza money' %>
+            </li>
+            <li class="m-0 ml-1">
+              <p>,</p>
+            </li>
+            <li class="mr-0">
+              <%= image_tag 'zamani-cash.png', alt: 'Zamani Cash' %>
+            </li>
+            <li class="m-0 ml-1">
+              <p>,</p>
+            </li>
+            <li class="mr-0">
+              <%= image_tag 'airtel-money1.png', alt: 'Airtel money' %>
+            </li>
+            <li class="m-0">
+              <p>,</p>
+            </li>
+            <li class="mr-0">
+              <%= image_tag 'moov-money.png', alt: 'MOOV money' %>
+            </li>
+            <li class="m-0 ml-1">
+              <p>,</p>
+            </li>
+            <li>
+              <%= image_tag 'visa1.png', alt: 'Visa' %>
+            </li>
+            <li class="m-0">
+              <p>et</p>
+            </li>
+            <li>
+              <%= image_tag 'mastercard2.png', alt: 'Mastercard' %>
+            </li>
+          </ul>
+        </div>
+        <strong class="blinking-text has-text-danger">Le vote du public compte à 100% pour la notation</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="tarmamun py-6">
+    <div class="container">
+      <h3 class="title is-4 mt-0 mb-6 has-text-centered">Les nominés</h3>
+      <div class="miss-list">
+        <% @candidates.each do |candidate| %>
+          <div>
+            <div class="is-relative">
+              <% if @first_candidates_votes >= 1 %>
+                <div class="ranking-container">
+                  <% if @first_candidate_by_votes_id == candidate.id %>
+                    <%= image_tag 'rank-1.png', alt: 'candidate rank-1' %>
+                  <% end %>
+                </div>
+              <% end %>
+              <%= render 'shared/candidate_card', candidate: candidate, setting: @setting  %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'voters/modal' %>
+</section>

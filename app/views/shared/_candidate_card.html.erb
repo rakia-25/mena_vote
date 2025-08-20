@@ -1,0 +1,32 @@
+<% vote_count = Candidate.find_by(vote_code: candidate.vote_code, year_id: @current_year.id)&.votes %>
+
+<% if setting.vote? == true %>
+<div class="card miss-card candidate-card show-button"
+  data-controller="modalData" data-action="click->modalData#initValue click->modal#show"
+  data-candidate-code="<%= candidate.vote_code %>"
+  data-candidate-name="<%= candidate.name == 'SEYNO 50' ? 'SEYNO 50%' : candidate.name %>"
+  data-candidate-category="<%= candidate.categories.as_json(only: [:id, :name]).to_json %>"
+>
+<% else %>
+<div class="card miss-card candidate-card" data-controller="modalData">
+<% end %>  
+  <input data-modalData-target="candidateCode" type="text" value="<%= candidate.vote_code %>" hidden>
+  <input data-modalData-target="candidateName" type="text" value="<%= candidate.name == 'SEYNO 50' ? 'SEYNO 50%' : candidate.name %>" hidden>
+  <input data-modalData-target="candidateCategory" type="text" value="<%= candidate.categories.as_json(only: [:id, :name]).to_json %>" hidden>
+  <figure class="image img-container">
+    <%= image_tag "candidates/#{candidate.categories.first.name} - #{candidate.name}.png", alt: "#{@current_year.id} #{candidate.name}", class: "is-rounded" %>
+    <% if setting.vote? == true %>
+      <button type="button" class="button">Je vote</button>
+    <% end %>
+  </figure>
+  <h3><%= candidate.name == 'SEYNO 50' ? 'SEYNO 50%' : candidate.name %></h3>
+  <small class="has-text-primary is-size-7"><%= candidate.categories.first.name %></small>
+  <small>
+    <span class="text-gold" id="candidate-<%= candidate.vote_code %>-votes"><%= vote_count %></span>
+    <% if vote_count > 1 %>
+      Votes
+    <% else %>
+      Vote
+    <% end %>
+  </small>
+</div>

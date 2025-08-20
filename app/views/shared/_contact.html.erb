@@ -1,0 +1,67 @@
+<section id="contacts" class="section-spacing section-contact has-background-gray">
+  <div class="container">
+    <div class="columns is-multiline is-justify-content-center">
+      <div class="column is-5-widescreen">
+        <%= image_tag 'logo-rounded.jpg', alt: 'TARMAMUN MU', class: 'contact-miss-logo mb-5' %>
+        <p class="">Votre soutien contribuera à magnifier cette célébration de la culture et de l'excellence, laissant une empreinte lumineuse dans l'histoire de la scène artistique nigérienne.</p>
+        <p class="mt-2 mb-5">Ensemble, créons une aventure inoubliable et valorisons la richesse de notre patrimoine culturel.</p>
+        <div class="contact-info-item">
+          <div class="contact-info-content">
+            <%= render 'shared_svg/phone' %>
+            <a href="tel:+22793111325" class="" target="_blank">00227 93 11 13 25</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-content">
+            <%= render 'shared_svg/envelope' %>
+            <a href="mailto:tarmamunmu@gmail.com" class="" target="_blank">tarmamunmu@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-5-desktop is-12-tablet">
+        <div class="contact-content" data-controller="contact">
+          <div class="is-hidden mb-5" data-target='contact.success'>
+            <article class="message is-success">
+              <div class="message-body text-sm">
+                Super! Votre commande a bien été soumise. Nous vous contacterons bientôt.
+              </div>
+            </article>
+          </div>
+          <div class="is-hidden mb-5" data-target='contact.error'>
+            <article class="message is-danger">
+              <div class="message-body text-sm">
+                Désolé! Nous n'avons pas pu enregistrer votre demande.
+              </div>
+            </article>
+          </div>
+          <%= form_with model: Contact.new(), html: { class: '', data: { target: 'contact.form', action: "ajax:error->contact#onPostError ajax:success->contact#onPostSuccess" }, method: :post } do |f| %>
+            <div class="field">
+              <div class="control">
+                <input class="input is-rounded" type="text" placeholder="Votre nom" name="contact[fullname]" data-target="contact.fullname" required>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input class="input is-rounded" type="email" placeholder="Votre Email"  name="contact[email]" data-target="contact.email" required>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea" placeholder="Votre message" rows="6" name="contact[message]" data-target="contact.message" required></textarea>
+              </div>
+            </div>
+            <div class="field mt-5">
+              <div class="control has-text-right-desktop">
+                <button class="button is-default" type="submit">
+                  Envoyer
+                </button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

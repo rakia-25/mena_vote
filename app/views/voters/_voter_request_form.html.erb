@@ -1,0 +1,34 @@
+<div class="vote-form" data-controller="payment">
+  <div class="notification is-warning is-light has-text-centered notification-payment-info">
+    <p class="is-size-6 mb-2">💸 Total à payer : <strong><span data-payment-target="total">100F cfa</span></strong></p>
+    <p>Exprimez autant de voix que vous voulez : <strong>5, 10, 50, 100, 10.000 ...</strong> Remplissez le nombre de fois et autant de fois que vous souhaitez voter</p>
+  </div>
+
+  <div class="field">
+    <label class="label">Combien de fois voulez-vous voter ?</label>
+    <div class="control">
+      <input type="number" class="input is-medium" id="vote_number" data-payment-target="voteNumber" data-action="input->payment#cost" value="1" min="1" required>
+    </div>
+    <p class="help is-danger is-hidden" data-payment-target="amountError">Veuillez indiquer le nombre de votes</p>
+  </div>
+
+  <p class="has-text-danger has-text-weight-semibold mt-4">
+    ⚠️ Veuillez attendre la fin du processus de paiement et le retour sur le site pour que la comptabilisation soit effective.
+  </p>
+
+  <div class="box has-background-white-ter mt-5 mb-0">
+    <h4 class="title is-5 mt-0 mb-2">🔗 Lien de vote</h4>
+    <p>Cliquer sur le bouton ci-dessous pour copier le lien de vote de <span class="candidate-name"></span> afin de le partager</p>
+    <div data-controller="clipboard" class="clipboard-container">
+      <input class="hidden-clip-board-input clip-board-input clip-board-input-to-change input" data-clipboard-target="source" type="text" class="input" readonly >
+      <button type="button" data-action="click->clipboard#copy" class="button is-warning clipboard-button" data-tooltip="Clique pour copier">
+        Copier
+      </button>
+    </div>
+  </div>
+
+  <input type="hidden" class="input input-candidate-code" data-payment-target="voteCode" required>
+  <div class="has-text-right mt-6">
+    <button class="button is-default w-100 animated headShake infinite" data-action="click->payment#resquestPayment" data-payment-target="button">Je vote</button>
+  </div>
+</div>

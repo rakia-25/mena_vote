@@ -1,0 +1,11 @@
+<div class="card shadow-none">
+  <div class="card-content">
+    <div class="columns is-mobile is-desktop">
+      <div class="column is-9">
+        <% send("#{resource_name}_columns").each do |column, title| %>
+          <p><strong><%= title %>: </strong><%= resource.send(column) %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

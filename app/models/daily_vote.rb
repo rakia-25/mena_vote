@@ -1,0 +1,2 @@
+class DailyVote < ApplicationRecord
+end

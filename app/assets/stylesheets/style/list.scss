@@ -1,0 +1,89 @@
+.sociaux-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;    
+    margin-left: 0.8rem;
+
+    a {
+      display: block;
+      border-radius: 50px;
+      border: 2px solid #000;
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      line-height: 2.2;
+
+      i,
+      svg {
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+      }
+      
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+
+    a.fb-icon {
+      border-color: #99b9ee;
+      
+      svg {
+        fill: #0766ff;
+      }
+    }
+
+    a.twitter-icon {
+      border-color: #aeafb2;
+      
+      svg {
+        fill: #000000;
+      }
+    }
+
+    a.insta-icon {
+      border-color: #f07ece;
+
+      svg {
+        fill: #ff02b3;
+      }
+    }
+  }
+}
+
+.galerie-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;    
+    margin: 0.8rem;
+  }
+}
+
+.payment-method-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  li img {
+    max-width: 50px !important;
+  }
+}
+
+.miss-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  column-gap: 4px;
+}
+.miss-list > div {
+  margin: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}

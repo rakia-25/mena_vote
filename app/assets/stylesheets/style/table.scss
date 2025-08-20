@@ -1,0 +1,53 @@
+.table-options {
+  padding: 1rem;
+}
+.table.is-narrow {
+  td, th {
+    padding: 0.7rem 0.5rem !important;
+  }
+}
+
+.table.is-hoverable tbody tr:not(.is-selected):hover {
+  background-color: #fafbfd !important;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse !important;
+
+  tbody {
+    vertical-align: inherit
+  }
+
+  thead {
+    background-color: #edf2f9 !important;
+    color: #344050;
+    vertical-align: bottom;
+
+    th {
+      color: #344050;
+      vertical-align: top;
+      border-bottom: 1px solid #f1f4f8;
+    }
+  }
+  td {
+    vertical-align: top;
+    border: none;
+    border-top: 1px solid #f1f4f8;
+
+    .button {
+      background: #fff;
+      color: #333;
+      padding: 0.5rem;
+    }
+  }
+  tr {
+    &:hover {
+      .button {
+        -webkit-box-shadow: 0 0 0 1px rgba(43,45,80,0.1), 0 2px 5px 0 rgba(43,45,80,0.08), 0 1px 1.5px 0 rgba(0,0,0,0.07), 0 1px 2px 0 rgba(0,0,0,0.08);
+        box-shadow: 0 0 0 1px rgba(43,45,80,0.1), 0 2px 5px 0 rgba(43,45,80,0.08), 0 1px 1.5px 0 rgba(0,0,0,0.07), 0 1px 2px 0 rgba(0,0,0,0.08);
+      }
+    }
+  }
+}

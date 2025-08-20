@@ -1,0 +1,65 @@
+aside.menu {
+  position: fixed;
+  display: inline-block;
+  padding: 0;
+  z-index: 1019;
+  top: 4.3125rem;
+  width: 100%;
+  max-width: 100vw;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0 -15px;
+  background-image: none;
+  max-width: 19rem;
+  top: 0;
+  height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  background-color: #fafafa;
+
+  @media screen and (max-width: 1023px) {
+    visibility: hidden;
+    opacity: 0;
+    max-width: 100%;
+  }
+
+  hr {
+    background-color: #efefef;
+  }
+
+  .dash-logout {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3rem;
+  }
+}
+.menu-container {
+  @media screen and (max-width: 1023px) {
+    max-width: 19rem;
+    background-color: #fff;
+  }
+
+  .navbar-burger {
+    border: 0;
+    background-color: $primary;
+    height: auto;
+    margin-bottom: 1.3rem;
+
+    i {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+  }
+}
+
+aside.menu-toggle {
+  @media screen and (max-width: 1023px) {
+    visibility: visible;
+    opacity: 1;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease-out;
+  }
+}

@@ -1,0 +1,120 @@
+
+label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.textarea {
+  border-radius: 10px !important;
+}
+
+.input, .textarea, .select select {
+  border-radius: 30px;
+  border: 1px solid #b0afb4;
+  color: #161439;
+
+  &::placeholder {
+    color: #747474;
+  }
+}
+
+.select {
+  width: 100%;
+
+  select {
+    width: 100%;
+  }
+}
+
+.control {
+  .select {
+    width: 100%;
+    select {
+      width: 100%;
+    }
+  }
+}
+
+
+.file-name-container {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin: 0.25rem 0;
+  cursor: pointer;
+
+  span{
+    font-weight: 14px;
+    color: $tarmamun-green;
+    text-decoration: underline;
+  }
+
+  .file-label {
+    cursor: pointer;
+    color: $tarmamun-green !important;
+    display: inline !important;
+    vertical-align: middle;
+    font-size: 0.875rem !important;
+  }
+}
+
+.file-input{
+  cursor: pointer;
+}
+
+.file-name {
+  max-width: 30em;
+}
+
+.select {
+  width: 100%;
+  select {
+    width: 100%;
+  }
+}
+
+.candidate-form-img-preview {
+  img {
+    width: 150px !important;
+  }
+}
+
+.form-img-preview-candidate {
+  .action-line {
+    justify-content: start;
+    align-items: center;
+  }
+  img {
+    // max-width: 230px;
+    margin: 0 0 2rem;
+    display: block;
+  }
+}
+
+.control.is-loading::after {
+    position: absolute!important;
+    right: .625em;
+    top: .625em;
+    z-index: 4;
+}
+
+.file-name.is-loading {
+  padding-right: 3rem;
+
+  &::after {
+    -webkit-animation: spinAround .5s infinite linear;
+    animation: spinAround .5s infinite linear;
+    border: 2px solid $tarmamun-cyan;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: block;
+    height: 1.5rem;
+    position: absolute;
+    width: 1.5rem;
+    top: 7px;
+    right: 7px;
+  }
+}
+

@@ -1,0 +1,3 @@
+<div class="select select-parent">
+  <%= f.select name, options_for_select(send("#{value[:enum]}"), ''), {include_blank: "Non définit"}, placeholder: "Non définit", class: "select js-choice" %>
+</div>

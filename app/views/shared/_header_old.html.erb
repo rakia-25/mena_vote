@@ -1,0 +1,244 @@
+<header class="header">
+  <nav class="navbar is-transparent">
+    <div class="container">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <%= image_tag 'logo.png', alt: 'Logo TARMAMUN MU 2021' %>
+        <% end %>
+        <div class="navbar-burger" data-target="miss-navbar">
+          <ul class="sociaux-list">
+            <li>
+              <a href="https://www.facebook.com/MissNigerOfficiel" target="blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="" target="blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/miss.niger" target="blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="miss-navbar" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="<%= root_path %>#become_miss">
+            Devenir Miss
+          </a>
+          <a class="navbar-item" href="<%= root_path %>#partners">
+            Partenaires
+          </a>
+          <a class="navbar-item" href="<%= root_path %>#contacts">
+            Contacts
+          </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <ul class="sociaux-list">
+              <li>
+                <a href="https://www.facebook.com/MissNigerOfficiel" target="blank">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li>
+                <a href="" target="blank">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/miss.niger" target="blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section-spacing" data-controller="vote modal"
+  data-action="new:candidate:vote@window->vote#newVote">
+    <div class="container">
+      <div class="section-title">
+        <h2>TARMAMUN MU 2021</h2>
+      </div>
+      <ul class="miss-list">
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="7" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-7.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Miss Agadez: Miriam Oumarou</h3>
+            <small><span class="text-gold" id="candidate-7-votes"><%= Candidate.find_by(code: 7, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="12" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Dauphine Agadez</h3>
+            <small><span class="text-gold" id="candidate-1-votes"><%= Candidate.find_by(code: 12, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="6" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-6.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Miss Diffa: Abdou Gagara Aïchatou</h3>
+            <small><span class="text-gold" id="candidate-6-votes"><%= Candidate.find_by(code: 6, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+             <input data-target="modalData.missCode" type="text" value="5" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-5.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Miss Dosso: Mariama Amadou</h3>
+            <small><span class="text-gold" id="candidate-5-votes"><%= Candidate.find_by(code: 5, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="11" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-11.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Dauphine Dosso Attika Yacouba</h3>
+            <small><span class="text-gold" id="candidate-1-votes"><%= Candidate.find_by(code: 11, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="4" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-4.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Miss Maradi: Abba James Rachida</h3>
+            <small><span class="text-gold" id="candidate-4-votes"><%= Candidate.find_by(code: 4, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="9" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-9.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Dauphine Maradi Issoufou Dinna Aicha Clodinna</h3>
+            <small><span class="text-gold" id="candidate-9-votes"><%= Candidate.find_by(code: 9, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="13" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-13.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Miss Niamey: Assoumane Fatouma</h3>
+            <small><span class="text-gold" id="candidate-13-votes"><%= Candidate.find_by(code: 13, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="3" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-3.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Dauphine Niamey: Djibrilla Maïgari Binta</h3>
+            <small><span class="text-gold" id="candidate-3-votes"><%= Candidate.find_by(code: 3, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="2" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-2.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Miss Tahoua: Salissou Dilleha Rabia</h3>
+            <small><span class="text-gold" id="candidate-2-votes"><%= Candidate.find_by(code: 2, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="8" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-8.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Miss Tillaberi: Seydou Maimouna</h3>
+            <small><span class="text-gold" id="candidate-8-votes"><%= Candidate.find_by(code: 8, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="10" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-10.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Dauphine Tillaberi Balkissa Abdoulkarim</h3>
+            <small><span class="text-gold" id="candidate-10-votes"><%= Candidate.find_by(code: 10, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+        <li>
+          <div class="card candidate-card" data-controller="modalData">
+            <input data-target="modalData.missCode" type="text" value="1" hidden>
+            <figure class="image img-container">
+              <%= image_tag 'miss-21-1.jpg', alt: 'TARMAMUN MU', class: "is-rounded" %>
+            </figure>
+            <h3>Miss Zinder: Abouba Souleymane Nafissa</h3>
+            <small><span class="text-gold" id="candidate-1-votes"><%= Candidate.find_by(code: 1, year_id: 2)&.votes %></span>
+              Votes</small>
+            <button type="button" class="button is-small is-primary is-font-700" data-action="click->modalData#initValue click->modal#toggle">Je vote</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <%= render 'voters/modal' %>
+  </section>
+
+  <div class="banner">
+    <div class="content">
+      <h2>A qui la <strong>Couronne</strong> et la <strong>Superbe voiture ?</strong></h2>
+      <a href="<%= new_inscription_path %>" class="button is-default">Déposer ma candidature</a>
+    </div>
+  </div>
+
+  <%= image_tag 'miss.png', alt: 'TARMAMUN MU 2020', class: 'banner-img-1' %>
+  <%= image_tag 'car.png', alt: 'TARMAMUN MU 2020 Voiture', class: 'banner-img-2' %>
+  <%= image_tag 'miss-mobile.png', alt: 'TARMAMUN MU 2020 Voiture', class: 'is-hidden-desktop banner-img-3' %>
+</header>

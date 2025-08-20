@@ -1,0 +1,33 @@
+<div class="auth-container">
+  <div class="card">
+    <div class="card-content bg-card" style="">
+      <div class="auth-header pb-6 has-text-centered">
+        <h1 class="subtitle is-4 mb-2">Connectez-vous à MissNiger</h1>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'pt-5') do |f| %>
+        <div class="field">
+          <div class="control">
+            <%= f.text_field :email, autofocus: true, class: "input", placeholder: "Votre Email" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.password_field :password, class: "input", placeholder: "Mot de passe" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me, "Se souvenir de moi" %>
+          </div>
+        <% end -%>
+
+        <div class="has-text-right form-submit">
+          <%= f.submit "Connexion", class: 'button is-primary is-fullwidth' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

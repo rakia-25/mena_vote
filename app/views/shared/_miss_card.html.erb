@@ -1,0 +1,25 @@
+<% show_vote_count = false if show_vote_count.blank? %>
+
+<div class="card miss-card <%= 'h-auto' if show_vote_count.blank? %>">
+  <div class="card-top">
+    <figure class="image img-container">
+      <% if candidate_winner %>
+        <span class="svg-icon">
+          <%= render 'shared_svg/crown' %>
+        </span>
+      <% end %>
+      <%= image_tag "miss-#{candidate_year}/#{miss_number}.jpg", alt: "#{candidate_year} #{miss_name}", class: "is-rounded" %>
+    </figure>
+    <h3><%= miss_name %></h3>
+  </div>
+  <% if show_vote_count %>
+    <div class="card-bottom">
+      <p class="is-size-7 is-font-700">votes</p>
+      <small>
+        <span class="vote-count" id="candidate-<%= miss_number %>-votes">
+          <%= Candidate.find_by(code: miss_number, year_id: get_year_id(candidate_year))&.votes %>
+        </span>
+      </small>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+<button
+  type="button"
+  class="button ipaymoney-button is-small is-primary is-font-700"
+  data-amount="<%= @amount %>" 
+  data-environement="<%= @environement %>"
+  data-key="<%= @public_key %>"
+  data-auto-open="true"
+  data-transaction-id="<%= @transaction_id %>"
+  data-redirect-url="<%= @redirect_url %>?vote=yes"
+  style="display: none"
+>
+  Je vote
+</button>
+
+<script>
+  window.onload = function() {
+    document.querySelector('.ipaymoney-button').click();
+  }
+</script>

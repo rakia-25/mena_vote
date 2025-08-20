@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tarmamun mu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= render 'application/favicon' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %> 
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+  </head>
+
+  <body data-controller="sidebar navbar dropdown accordion modal" data-turbo="false">
+    <%= render "shared/sidebar" %>
+    <div class="main-panel">
+      <div class="content-wrapper page-content my-5">
+        <%= render "shared/notification" %>
+        <div class="container">
+          <div class="is-flex is-justified-between is-aligned-center mb-4">
+            <h1 class="title is-6 mb-0">
+              <%= yield :page_title %>
+            </h1>
+            <div>
+              <%= yield :page_title_action %>
+            </div>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

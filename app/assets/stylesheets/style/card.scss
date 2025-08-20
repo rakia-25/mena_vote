@@ -1,0 +1,217 @@
+.candidate-wrapper {
+  max-width: 620px;
+  background-color: #fff;
+  padding: 1.5rem;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+.card-header:last-child {
+  border-bottom: none;
+}
+
+.partners-container {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+
+  .partners-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin: 0.5rem;
+      transition: all 0.5s ease-in-out;
+
+      img {
+        max-width: 100px;
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.partners-line {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(110px, 1fr));
+  column-gap: 4px;
+
+  img {
+    max-width: 96px;
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+.partners-line > div {
+  margin: 2px 0;
+  background-color: #f4f4f4f4;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.miss-card {
+  @media screen and (min-width: 769px), print {
+    height: 235px;
+  }
+  background-color: transparent;
+  color: #161439;
+  /* border: 1px solid #f4f4f4; */
+  /* padding: 1rem; */
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.h-auto {
+    height: auto !important;
+  }
+
+  .img-container {
+    position: relative;
+    min-height: 185px;
+    width: 185px;
+    max-width: 100%;
+    margin: 0 auto;
+    // border-radius: 50%;
+    // background: #ffc224;
+    // background-image: linear-gradient(90deg, #b19401 0%, #f4d01a 49%, #e4e1cd 100%);
+    // padding: 0.3rem;
+    // border: 1px solid #eb6228;
+
+    .svg-icon {
+      position: absolute;
+      right: -50px;
+      top: -50px;
+      width: 61px;
+      height: 68px;
+
+      svg path {
+        stroke: #eb6228;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 0.875rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #161439;
+    margin-bottom: 0.3rem;
+  }
+
+  small {
+    font-weight: 700;
+    /* position: absolute; */
+    /* bottom: 5px; */
+    /* right: 12px; */
+    /* left: 12px; */
+    /* margin: 0 auto; */
+    text-align: center;
+  }
+
+  .vote-count {
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    background-color: #ffc224;
+    border-radius: 8px;
+    padding: 0.2rem;
+    color: #fff;
+  }
+}
+
+.notification-payment-info {
+  position: static;
+  margin: 0 0 0.3rem 0 !important;
+  max-width: max-content !important;
+  transition: none !important;
+  animation: none !important;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.candidate-card {
+  height: 270px !important;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    .button {
+      color: #161439;
+    }
+  }
+
+  .text-gold {
+    font-size: 1rem;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+
+  .img-container {
+    // overflow: hidden;
+  }
+
+  .card-category {
+    display: flex;
+    font-size: 0.75rem;
+    justify-content: center;
+  }
+
+  .button {
+    background-color: #e9622a;
+    position: absolute;
+    bottom: 0px;
+    left: 2px;
+    right: 2px;
+    padding: 0.1rem 0 0.875rem;
+    font-weight: 800;
+    font-size: 0.875rem;
+    border-radius: 0;
+    max-width: 80px;
+    height: 26px;
+    border-radius: 10px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 768px) {
+      height: 21px;
+    }
+  }
+}
+
+.modal {
+  .modal-card-body {
+    border-radius: 5px;
+
+    .modal-card-title {
+      color: #161439;
+    }
+  }
+
+  .modal-close::before,
+  .delete::before,
+  .modal-close::after,
+  .delete::after {
+    background-color: #161439;
+  }
+
+  .modal-close,
+  .delete {
+    background-color: #fdbd44;
+  }
+}
+
+.ranking-container {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+
+  img {
+    max-width: 68px;
+  }
+}

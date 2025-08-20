@@ -1,0 +1,44 @@
+<section class="footer-area">
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-12-mobile is-12-tablet is-5-desktop">
+        <h5 class="has-text-white is-font-600">
+          Site officiel de TARMAMUN MU - Powered by <a class="link" href="https://web.facebook.com/iFUTUR/" target="_blank">i-Futur</a>
+        </h5>
+      </div>
+      <div class="column is-12-mobile is-12-tablet is-7-desktop has-text-right-desktop">
+        <ul class="is-inline-block">
+          <li class="is-inline-block">
+            <a href="<%= terms_path %>" class="mr-6">
+              Condition d'éligibilité
+            </a>
+          </li>
+          <li class="is-inline-block">
+            <a href="<%= privacy_policy_path %>" class="mr-6">
+              Condition d'utilisation
+            </a>
+          </li>
+        </ul>
+        <ul class="sociaux-list is-inline-block">
+          <li>
+            <a href="https://www.facebook.com/TarmamunMu?mibextid=rS40aB7S9Ucbxw6v" target="blank">
+              <%= render 'shared_svg/facebook_f' %>
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/tarmamun?t=4ywq_Ukn-sk0UFtz7GH4ww&s=09" target="blank">
+              <%= render 'shared_svg/twitter_x' %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <a class="button button-whatsapp mb-4 is-hidden-touch" href="https://wa.me/22793111325" target="_blank">
+          <%= image_tag 'whatsapp.svg', alt: 'Logo whatsapp' %>
+          Chat
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+

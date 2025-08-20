@@ -1,0 +1,93 @@
+<% content_for :page_title do %>
+  Dossier de candidature
+  <%= @inscription.validation_status %>
+<% end %>
+
+<% content_for :page_title_action do %>
+  <%= link_to 'Modifier', edit_inscription_path(@inscription), class: "button is-primary" %>
+<% end %>
+
+<div class="columns inscription-show-page">
+  <div class="column is-5">
+    <h1 class="mb-5 has-text-weight-semibold">Photo</h1>
+    <table class="table is-bordered">
+      <tr>
+        <td>
+          <% if @inscription.photo.attached? %>
+            <%= image_tag url_for(@inscription.photo) %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="column is-7">
+    <div class="card p-3 mt-6">
+      <h1 class="mb-5 has-text-weight-semibold">Informations</h1>
+      <div>
+        <table class="table is-bordered">
+          <tr>
+            <td>Nom</td>
+            <td><%= @inscription.last_name %></td>
+          </tr>
+          <tr>
+            <td>Prénom</td>
+            <td><%= @inscription.first_name %></td>
+          </tr>
+          <tr>
+            <td>Téléphone whatsapp</td>
+            <td><%= @inscription.phone_whatsapps %></td>
+          </tr>
+          <tr>
+            <td>Addresse mail</td>
+            <td><%= @inscription.email %></td>
+          </tr>
+          <tr>
+            <td>Addresse physique</td>
+            <td><%= @inscription.address %></td>
+          </tr>
+          <tr>
+            <td>Profession</td>
+            <td><%= @inscription.profession %></td>
+          </tr>
+          <tr>
+            <td>Niveau d'étude</td>
+            <td><%= @inscription.displayed_studying_level %></td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td><%= @inscription.displayed_age %></td>
+          </tr>
+          <tr>
+            <td>Taille</td>
+            <td><%= @inscription.displayed_height %></td>
+          </tr>
+          <tr>
+            <td>Poids</td>
+            <td><%= @inscription.weigth %></td>
+          </tr>
+          <tr>
+            <td>La région choisie</td>
+            <td><%= @inscription.region_name %></td>
+          </tr>
+          <tr>
+            <td>Lien Facebook</td>
+            <td><a href="<%= @inscription.facebook_url.blank? ? inscription_path(@inscription) : @inscription.facebook_url  %>"><%= @inscription.facebook_url.blank? ? "Non renseigné" : @inscription.facebook_url %></a></td>
+          </tr>
+          <tr>
+            <td>Lien Instagram</td>
+            <td><a href="<%= @inscription.instagram_url.blank? ? inscription_path(@inscription) : @inscription.instagram_url  %>"><%= @inscription.instagram_url.blank? ? "Non renseigné" : @inscription.instagram_url %></a></td>
+          </tr>
+          <tr>
+            <td>Lien TikTok</td>
+            <td><a href="<%= @inscription.tiktok_url.blank? ? inscription_path(@inscription) : @inscription.tiktok_url  %>"><%= @inscription.tiktok_url.blank? ? "Non renseigné" : @inscription.tiktok_url  %></a> </td>
+          </tr>
+          <tr>
+            <td>Lien LinkedIn</td>
+            <td><a href="<%= @inscription.linkedin_url.blank? ? inscription_path(@inscription) : @inscription.linkedin_url %>"><%= @inscription.linkedin_url.blank? ? "Non renseigné" : @inscription.linkedin_url %></a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+fr:
+  enum:
+    profile:
+      admin: 'Admin'
+      manager: 'Agent'
+    status:
+      init: 'Initialisé' 
+      accepted: 'Accepté'
+      rejected: 'Rejeté'
+    studying_level:
+      bepc: 'BEPC'
+      bac: 'Baccalauréat'
+      bts: 'BTS( Brevet de Technicien supérieur)'
+      licence: 'Licence Profossionelle'
+      master: 'Master'
+      doctorat: 'Doctorat'
+    payment_provider:
+      airtel: 'Airtel'
+      moov: 'Moov' 
+    age: 
+      eigtheen: '18 ans'   
+      nigtheen: '19 ans'   
+      twenty: '20 ans'   
+      twenty_one: '21 ans'   
+      twenty_two: '22 ans'   
+      twenty_three: '23 ans'   
+      twenty_four: '24 ans'   
+      twenty_five: '25 ans'   
+      twenty_six: '26 ans'   
+      twenty_seven: '27 ans'   
+
+

@@ -1,0 +1,4 @@
+.select:not(.is-multiple):not(.is-loading)::after,
+.navbar-link:not(.is-arrowless)::after {
+  border-width: 1.5px !important;
+}
