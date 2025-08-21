@@ -13,7 +13,6 @@ task insert_candidate: :environment do
       "RAPHAEL",
     ],
     "INFLUENCEUR" => [
-      "AISSATOU ADAMOU",
       "AMINA AMADOU",
       "AU MICRO DE MOUSSA",
       "DON CESAR",
@@ -122,7 +121,6 @@ task insert_candidate: :environment do
       "YOUSSOUF OUMAROU",
     ],
     "STYLISME" => [
-      "FARREDA COLLECTION",
       "IBDI CREATION",
       "MouneH ² Designer",
     ],
