@@ -8,7 +8,6 @@ task insert_candidate: :environment do
       "FARUK ISSA",
       "LAWALY GAZALY",
       "MAHAMADOU TASSIOU",
-      "MAMAN IRO",
       "NASSER CLEMENT",
       "RAPHAEL",
     ],
@@ -16,7 +15,6 @@ task insert_candidate: :environment do
       "AMINA AMADOU",
       "AU MICRO DE MOUSSA",
       "DON CESAR",
-      "FATMA JULES OUGUET",
       "KALIYA GOURO",
       "LE FADJIKARISTE",
       "MAIMOUNA ABDOULAYE MODI",
@@ -25,7 +23,6 @@ task insert_candidate: :environment do
       "SADIA BLOG",
       "SANNY 3",
       "YASMINA SAIDOU",
-      "ZARA ABDOURAHAMANE",
     ],
     "MAITRE DE CEREMONIE" => [
       "ABDINE ABDOULAYE",
@@ -46,13 +43,11 @@ task insert_candidate: :environment do
     "MEILLEUR CLIP DE L'ANNEE" => [
       "AKEEM",
       "DARE",
-      "HAMD MALLAM",
       "LIL MED",
       "MARIE DIALLO",
     ],
     "MEILLEUR HUMOURISTE DE L'ANNEE" => [
       "DIALLO 227",
-      "MAHAMADE LETIMIDE",
       "SAM L'HUMOURISTE",
       "WANOUSKY MONTANA",
     ],
@@ -65,7 +60,6 @@ task insert_candidate: :environment do
     ],
     "MUSIQUE MODERNE" => [
       "ALI ATCHIBILI",
-      "ORCHESTRE AZNA DE L'ADER",
       "TESTO YARO",
     ],
     "MUSIQUE URBAINE" => [
@@ -135,7 +129,6 @@ task insert_candidate: :environment do
       "DJAMILOU OZIL",
       "ETINCELLE",
       "HAKILOU AMADOU",
-      "MARIE ROSE",
       "WANOUSKY MONTANA",
     ],
   }
