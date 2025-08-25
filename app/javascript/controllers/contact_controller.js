@@ -13,7 +13,7 @@ export default class extends Controller {
     this.errorTarget.classList.add('is-hidden');
     this.formTarget.classList.add('is-hidden');
     this.successTarget.classList.remove('is-hidden');
-    window.location = `mailto:menavote@gmail.com?subject=${this.fullnameTarget.value} - MissNiger&body= ${this.messageTarget.value}
+    window.location = `mailto:menador.niger@gmail.com?subject=${this.fullnameTarget.value} - MissNiger&body= ${this.messageTarget.value}
     &cc=${this.emailTarget.value}`;
   }
 
