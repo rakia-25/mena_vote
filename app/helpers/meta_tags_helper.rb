@@ -12,6 +12,6 @@ module MetaTagsHelper
   end
 
   def meta_image
-    content_for?(:meta_image) ? "#{content_for(:meta_image)}" : "https://tarmamunmu-627fdb630b83.herokuapp.com/logo-rounded.jpg"
+    content_for?(:meta_image) ? "#{content_for(:meta_image)}" : "https://mena-vote-49bbc7f31c56.herokuapp.com/logo-rounded.jpg"
   end
 end
