@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
     else
       @payment = Payment.new(payment_params.merge(
         status: 0,
-        order_id: "tarmamun-voter-#{params[:payment][:vote_code]}-#{Time.now.to_i}",
+        order_id: "mena-voter-#{params[:payment][:vote_code]}-#{Time.now.to_i}",
         amount: amount * 100
       ))
   

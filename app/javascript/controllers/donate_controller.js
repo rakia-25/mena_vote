@@ -23,7 +23,7 @@ export default class extends Controller {
     }
     const amount = this.amountInputTarget.value;
     this.amountInputTarget.value = '';
-    const transactionId = `tarmamun_donate_${new Date().toISOString()}`;
+    const transactionId = `menavote_donate_${new Date().toISOString()}`;
     this.ipayButtonTarget.dataset.amount = amount;
     this.ipayButtonTarget.dataset.transactionId = transactionId;
     this.amountInputErrorMessageTarget.classList.add('is-hidden');
