@@ -60,8 +60,8 @@ task insert_candidate: :environment do
     "MENA D'OR" => [
       "ABDOURHAMANE MOHAMED",
       "ALZOUMA ABDOUL MADJID",
-      "GOUMEY DJIBRIL ABDOUL LATIF",
-      "HAROUNA HASSANE",
+      "GOUMEY  DJIBRIL ABDOUL LATIF",
+      "HAROUNA  HASSANE",
       "RIDOUANE HASSANE MAHAMANE",
       "TALLET SIDDO NOURIDINE",
     ]
