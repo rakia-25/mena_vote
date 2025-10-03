@@ -63,13 +63,24 @@
     <div class="section-title">
       <h2>Devenir partenaire</h2>
       <p>Associez votre image à la fierté du Football Nigérien : Devenez partenaire de la 2ème Édition du Mena d'Or et
-        soutenez
-        nos talents nationaux !</p>
+        soutenez nos talents nationaux !</p>
     </div>
   </div>
 
   <div class="is-fluid container">
     <div class="partners-container">
+      
+      <!-- Ligne des Partenaires VIP -->
+      <div class="partners-line vip">
+       <div>
+          <%= image_tag 'partners/fenifoot.png', alt: 'fenifoot' %>
+        </div>
+        <div>
+          <%= image_tag 'partners/agence-pulse.png', alt: 'agence-pulse' %>
+        </div>
+      </div>
+
+      <!-- Ligne des Partenaires normaux -->
       <div class="partners-line">
         <div>
           <%= image_tag 'partners/ifutur.jpg', alt: 'ifutur' %>
@@ -87,13 +98,25 @@
           <%= image_tag 'partners/touré-event.jpg', alt: 'touré-event' %>
         </div>
         <div>
-          <%= image_tag 'partners/agence-pulse.png', alt: 'agence-pulse' %>
-        </div>
-        <div>
           <%= image_tag 'partners/1xbet-niger.PNG', alt: '1xbet-niger' %>
         </div>
         <div>
           <%= image_tag 'partners/amanata.png', alt: 'amanata' %>
+        </div>
+        <div>
+          <%= image_tag 'partners/africa-tms.png', alt: 'africa-tms' %>
+        </div>
+        <div>
+          <%= image_tag 'partners/h2com.jpg', alt: 'h2com' %>
+        </div>
+        <div>
+          <%= image_tag 'partners/djigal.png', alt: 'djigal' %>
+        </div>
+        <div>
+          <%= image_tag 'partners/iman.jpg', alt: 'iman' %>
+        </div>
+        <div>
+          <%= image_tag 'partners/sport-edge.png', alt: 'sport-edge' %>
         </div>
       </div>
     </div>
@@ -104,4 +127,23 @@
   </div>
 </section>
 
+
 <%= render 'shared/contact' %>
+<style>
+  .partners-line.vip {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.partners-line.vip img {
+  max-height: 120px;
+  filter: drop-shadow(0 0 10px gold);
+  border: 2px solid gold;
+  border-radius: 8px;
+  padding: 5px;
+  background: #fff;
+}
+
+</style>
