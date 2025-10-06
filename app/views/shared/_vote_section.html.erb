@@ -2,50 +2,27 @@
   <div class="has-background-gray py-6">
     <div class="container">
       <div class="section-title mb-5">
-        <h2>Nominés MENA D'OR <br>2ème Édition - Spécial Football Nigérien</h2>
-        <p>Faites entendre votre voix et soutenez les talents qui font briller le football nigérien sur la scène
-          nationale et internationale !</p>
+        <h2>Nominés MENA D'OR 2025 <br>Spécial Football Nigérien</h2>
+        <p>Faites entendre votre voix et soutenez les talents qui font briller le football nigérien sur la scène nationale et internationale !</p>
+
         <div class="partners-container mb-4">
           <ul class="partners-list payment-method-list">
-            <li>
-              <p>Votez avec </p>
-            </li>
-            <li class="mr-0">
-              <%= image_tag 'amanata.png', alt: 'Al-izza money' %>
-            </li>
-            <li class="m-0 ml-1">
-              <p>,</p>
-            </li>
-            <li class="mr-0">
-              <%= image_tag 'zamani-cash.png', alt: 'Zamani Cash' %>
-            </li>
-            <li class="m-0 ml-1">
-              <p>,</p>
-            </li>
-            <li class="mr-0">
-              <%= image_tag 'airtel-money1.png', alt: 'Airtel money' %>
-            </li>
-            <li class="m-0">
-              <p>,</p>
-            </li>
-            <li class="mr-0">
-              <%= image_tag 'moov-money.png', alt: 'MOOV money' %>
-            </li>
-            <li class="m-0 ml-1">
-              <p>,</p>
-            </li>
-            <li>
-              <%= image_tag 'visa1.png', alt: 'Visa' %>
-            </li>
-            <li class="m-0">
-              <p>et</p>
-            </li>
-            <li>
-              <%= image_tag 'mastercard2.png', alt: 'Mastercard' %>
-            </li>
+            <li><p>Votez avec </p></li>
+            <li class="mr-0"><%= image_tag 'amanata.png', alt: 'Al-izza money' %></li>
+            <li class="m-0 ml-1"><p>,</p></li>
+            <li class="mr-0"><%= image_tag 'zamani-cash.png', alt: 'Zamani Cash' %></li>
+            <li class="m-0 ml-1"><p>,</p></li>
+            <li class="mr-0"><%= image_tag 'airtel-money1.png', alt: 'Airtel money' %></li>
+            <li class="m-0"><p>,</p></li>
+            <li class="mr-0"><%= image_tag 'moov-money.png', alt: 'MOOV money' %></li>
+            <li class="m-0 ml-1"><p>,</p></li>
+            <li><%= image_tag 'visa1.png', alt: 'Visa' %></li>
+            <li class="m-0"><p>et</p></li>
+            <li><%= image_tag 'mastercard2.png', alt: 'Mastercard' %></li>
           </ul>
         </div>
-        <strong class="blinking-text has-text-danger">Le vote du public compte à 100% pour la notation</strong>
+
+        <strong class="blinking-text has-text-danger">Votez plus pour vos nominés pour augmenter leur chance de gagner.</strong>
       </div>
     </div>
   </div>
@@ -53,22 +30,33 @@
   <div class="tarmamun py-6">
     <div class="container">
       <h3 class="title is-4 mt-0 mb-6 has-text-centered">Les nominés</h3>
-      <div class="miss-list">
-        <% @candidates.each do |candidate| %>
-          <div>
-            <div class="is-relative">
-              <% if @first_candidates_votes >= 1 %>
-                <div class="ranking-container">
-                  <% if @first_candidate_by_votes_id == candidate.id %>
-                    <%= image_tag 'rank-1.png', alt: 'candidate rank-1' %>
-                  <% end %>
-                </div>
-              <% end %>
-              <%= render 'shared/candidate_card', candidate: candidate, setting: @setting  %>
+
+      <% if @categories.present? && @candidates.present? %>
+        <% @categories.each do |category| %>
+          <% category_candidates = @candidates.select { |c| c.categories.include?(category) } %>
+
+          <% if category_candidates.any? %>
+            <div class="category-section mb-6">
+              <h4 class="title is-5 has-text-primary has-text-centered mb-4">CATEGORIE <%= category.name %></h4>
+
+              <div class="columns is-multiline is-centered">
+                <% category_candidates.each do |candidate| %>
+                  <div class="column is-2"> <!-- 12/6 = 2 pour 6 colonnes -->
+                    <% if @first_candidates_votes.present? && @first_candidate_by_votes_id == candidate.id %>
+                      <div class="ranking-container">
+                        <%= image_tag 'rank-1.png', alt: 'candidate rank-1' %>
+                      </div>
+                    <% end %>
+                    <%= render 'shared/candidate_card', candidate: candidate, setting: @setting %>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      </div>
+      <% else %>
+        <p class="has-text-centered has-text-grey">Aucun candidat ou catégorie disponible pour le moment.</p>
+      <% end %>
     </div>
   </div>
 
