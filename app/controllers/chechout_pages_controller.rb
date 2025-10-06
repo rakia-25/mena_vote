@@ -10,7 +10,7 @@ class ChechoutPagesController < ApplicationController
     @amount = @payment.amount
     @transaction_id = @payment.order_id
     @environement = "live"
-    @public_key = "pk_2c2ee44ffc334c98a811e8f08851462b"
+    @public_key = "pk_1fabb339d19249d7ad59041f2eeedbbb"
     @redirect_url = "https://ivotes.app/"
   end
 end
