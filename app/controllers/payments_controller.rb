@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
   end
   
   def webhook
-    if request.headers['Secret-Hash'] != 'sdfsewrfwer90wr809w8r7wer'
+    if request.headers['Secret-Hash'] != Rails.application.credentials.dig(:ipay_mena, :secret_key)
       head :ok
       return
     end
