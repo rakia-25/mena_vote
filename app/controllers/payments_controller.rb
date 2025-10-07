@@ -34,7 +34,10 @@ class PaymentsController < ApplicationController
   end
   
   def webhook
-    # return if request.headers['secret-hash'] != 'sdfsewrfwer90wr809w8r7wer'
+    if request.headers['Secret-Hash'] != 'sdfsewrfwer90wr809w8r7wer'
+      head :ok
+      return
+    end
 
     @payment = Payment.find_by('order_id = ?', params['data']['external_reference'])
     @status = params['data']['status']
