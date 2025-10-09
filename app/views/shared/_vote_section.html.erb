@@ -42,11 +42,6 @@
               <div class="columns is-multiline is-centered">
                 <% category_candidates.each do |candidate| %>
                   <div class="column is-2"> <!-- 12/6 = 2 pour 6 colonnes -->
-                    <% if @first_candidates_votes.present? && @first_candidate_by_votes_id == candidate.id %>
-                      <div class="ranking-container">
-                        <%= image_tag 'rank-1.png', alt: 'candidate rank-1' %>
-                      </div>
-                    <% end %>
                     <%= render 'shared/candidate_card', candidate: candidate, setting: @setting %>
                   </div>
                 <% end %>
