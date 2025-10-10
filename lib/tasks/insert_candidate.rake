@@ -41,7 +41,7 @@ task insert_candidate: :environment do
       "ALEX ALUMIDE",
       "ELVIS BERNARD",
       "GODGIVE OSCAR ASSINACHI",
-      "GOUMEY DJIBRIL ABDO",
+      "NANA KWAME ABRAHAM",
     ],
     "MEILLEUR JOUEUR NIGERIEN A L'EXTERIEUR" => [
       "ALASSANE BONKANO ABDOUL RAHIM",
