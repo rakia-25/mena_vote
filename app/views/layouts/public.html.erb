@@ -24,7 +24,7 @@
       </div>
     <% else %>
       <div data-controller="tabs navbar">
-        <% if setting.show_countdown? == true %>
+        <% if setting.show_countdown == "true" %>
           <%= render 'shared/countdown' %>
         <% end %>
 
